@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'maven-publish'
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT'
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'io.github.xingkongqwq'
+            artifactId = 'xklib-api'
+            version = '1.0-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
+group 'io.github.xingkongqwq'
+version '1.0-SNAPSHOT'

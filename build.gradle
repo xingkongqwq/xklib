@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    repositories {
+        maven {
+            url = uri("https://repo.papermc.io/repository/maven-public/")
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT'
+    compileOnly project(':xklib-api')
+}
+jar.from {
+    zipTree configurations.compileClasspath.find { it.name.contains 'xklib-api' }
+}
+group 'io.github.xingkongqwq'
+version '1.0-SNAPSHOT'
